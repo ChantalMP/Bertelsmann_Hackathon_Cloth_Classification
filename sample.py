@@ -12,7 +12,7 @@ print ("Creating project...")
 project = trainer.create_project("My Project")
 
 # Make two tags in the new project
-casual_woman_tag = trainer.create_tag(project.id, "casual_woman_tag")
+casual_woman_tag = trainer.create_tag(project.id, "casual_woman")
 casual_man_tag = trainer.create_tag(project.id, "casual_man")
 
 sport_woman_tag = trainer.create_tag(project.id, "sport_woman")
@@ -21,48 +21,39 @@ sport_man_tag = trainer.create_tag(project.id, "sport_man")
 business_woman_tag = trainer.create_tag(project.id, "business_woman")
 business_man_tag = trainer.create_tag(project.id, "business_man")
 
-wedding_bride_tag = trainer.create_tag(project.id, "wedding_bride")
-
-
 # Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
 # they can be added by using the following:
 
 import os
-casual_woman_dir = "Images\\casual_woman"
-for image in os.listdir(os.fsencode("Images\\casual_woman")):
-   with open(casual_woman_dir + "\\" + os.fsdecode(image), mode="rb") as img_data:
+casual_woman_dir = "Images/casual_woman"
+for image in os.listdir(os.fsencode(casual_woman_dir)):
+   with open(casual_woman_dir + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ casual_woman_tag.id ])
 
-casual_man_tag_dir = "Images\\casual_man_tag"
-for image in os.listdir(os.fsencode("Images\\casual_man_tag")):
-   with open(casual_man_tag + "\\" + os.fsdecode(image), mode="rb") as img_data:
+casual_man_dir = "Images/casual_man"
+for image in os.listdir(os.fsencode(casual_man_dir)):
+   with open(casual_man_dir + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ casual_man_tag.id ])
 
-sport_woman_dir = "Images\\sport_woman"
-for image in os.listdir(os.fsencode("Images\\sport_woman")):
-   with open(sport_woman_dir + "\\" + os.fsdecode(image), mode="rb") as img_data:
+sport_woman_dir = "Images/sport_woman"
+for image in os.listdir(os.fsencode(sport_woman_dir)):
+   with open(sport_woman_dir + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ sport_woman_tag.id ])
 
-sport_man_tag_dir = "Images\\sport_man_tag"
-for image in os.listdir(os.fsencode("Images\\sport_man_tag")):
-   with open(sport_man_tag + "\\" + os.fsdecode(image), mode="rb") as img_data:
+sport_man_dir = "Images/sport_man"
+for image in os.listdir(os.fsencode(sport_man_dir)):
+   with open(sport_man_dir + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ sport_man_tag.id ])
 
-business_woman_dir = "Images\\business_woman"
-for image in os.listdir(os.fsencode("Images\\business_woman")):
-   with open(business_woman_dir + "\\" + os.fsdecode(image), mode="rb") as img_data:
+business_woman_dir = "Images/business_woman"
+for image in os.listdir(os.fsencode(business_woman_dir)):
+   with open(business_woman_dir + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ business_woman_tag.id ])
 
-business_man_tag_dir = "Images\\business_man_tag"
-for image in os.listdir(os.fsencode("Images\\business_man_tag")):
-   with open(business_man_tag + "\\" + os.fsdecode(image), mode="rb") as img_data:
+business_man_dir = "Images/business_man"
+for image in os.listdir(os.fsencode(business_man_dir)):
+   with open(business_man_tag + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ business_man_tag.id ])
-
-business_man_tag_dir = "Images\\wedding_bride_tag"
-for image in os.listdir(os.fsencode("Images\\wedding_bride_tag")):
-   with open(wedding_bride_tag + "\\" + os.fsdecode(image), mode="rb") as img_data:
-       trainer.create_images_from_data(project.id, img_data.read(), [ wedding_bride_tag.id ])
-
 
 import time
 
@@ -76,5 +67,3 @@ while (iteration.status == "Training"):
 # The iteration is now trained. Make it the default project endpoint
 trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
-
-
