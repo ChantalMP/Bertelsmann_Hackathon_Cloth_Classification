@@ -52,7 +52,7 @@ for image in os.listdir(os.fsencode(business_woman_dir)):
 
 business_man_dir = "Images/business_man"
 for image in os.listdir(os.fsencode(business_man_dir)):
-   with open(business_man_tag + "/" + os.fsdecode(image), mode="rb") as img_data:
+   with open(business_man_dir + "/" + os.fsdecode(image), mode="rb") as img_data:
        trainer.create_images_from_data(project.id, img_data.read(), [ business_man_tag.id ])
 
 import time

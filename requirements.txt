@@ -1,3 +1,5 @@
 azure-cognitiveservices-vision-customvision
 cognitive_face
 Pillow
+qi
+Image
