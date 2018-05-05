@@ -10,6 +10,7 @@ import time
 from PIL import Image
 
 def main(session):
+    print("hey")
     """
     First get an image, then show it on the screen with PIL.
     """
