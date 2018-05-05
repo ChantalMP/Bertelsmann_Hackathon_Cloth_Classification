@@ -8,9 +8,9 @@ import argparse
 import sys
 import time
 from PIL import Image
+# from gender_recognizer import get_gender
 
 def main(session):
-    print("hey")
     """
     First get an image, then show it on the screen with PIL.
     """
@@ -51,12 +51,13 @@ def main(session):
     # Save the image.
     im.save("camImage.png", "PNG")
 
-    im.show()
+    # im.show()
 
 
-if __name__ == "__main__":
+def take_photo():
+# if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", type=str, default="192.168.780.43",
+    parser.add_argument("--ip", type=str, default="192.168.178.31",
                         help="Robot IP address. On robot or Local Naoqi: use '127.0.0.1'.")
     parser.add_argument("--port", type=int, default=9559,
                         help="Naoqi port number")

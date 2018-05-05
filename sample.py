@@ -1,6 +1,5 @@
 from azure.cognitiveservices.vision.customvision.training import training_api
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
-
 # Replace with a valid key
 training_key = "1dcf529eee10461c951c4e1b324dcdc8"
 prediction_key = "f5bbd790c81e4b379e0250cab326b1ab"

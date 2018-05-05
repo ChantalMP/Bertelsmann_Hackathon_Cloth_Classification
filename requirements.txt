@@ -1,5 +1,3 @@
 azure-cognitiveservices-vision-customvision
 cognitive_face
-Pillow
-qi
-Image
+Pillow==2.9.0

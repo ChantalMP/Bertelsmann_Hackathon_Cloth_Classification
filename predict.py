@@ -2,7 +2,6 @@ from sample import prediction_key, training_key, trainer, iteration, project
 from gender_recognizer import get_gender
 from give_recomendation import recommend
 
-
 #PREDICTION
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
 from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
