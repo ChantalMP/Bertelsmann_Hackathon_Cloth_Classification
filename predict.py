@@ -13,9 +13,8 @@
 # Now there is a trained endpoint that can be used to make a prediction
 # from take_image import take_photo
 
-def evaluate_person(image_url='camImage.png', wish='business', gender=None):
+def evaluate_person(image_url='camImage.png', wish='casual', gender=None):
     from gender_recognizer import get_gender
-    from give_recomendation import recommend
     # from azure.cognitiveservices.vision.customvision.training import training_api
 
     training_key = "1dcf529eee10461c951c4e1b324dcdc8"
@@ -28,7 +27,7 @@ def evaluate_person(image_url='camImage.png', wish='business', gender=None):
 
     # Now there is a trained endpoint that can be used to make a prediction
     from take_image import take_photo
-    
+
     if gender == None:
        gender = get_gender(image_url)
 
@@ -52,12 +51,13 @@ def evaluate_person(image_url='camImage.png', wish='business', gender=None):
     
     intern_gender = 'man' if gender == 'male' else 'woman'
 
-    if best_prediction == wish+'_'+gender:
+
+    if best_prediction == wish+'_'+intern_gender:
         print('MATCH')
-        return True
+        return True,best_prediction
 
     else:
-        return False
+        return False,best_prediction
 
 
 
