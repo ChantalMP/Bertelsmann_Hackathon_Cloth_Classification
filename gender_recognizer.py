@@ -1,9 +1,13 @@
 import cognitive_face as CF
-import urllib.parse, urllib.error
+import urlparse
+import urllib
 import requests
 import json
 
-def get_gender(image_path='Images/test/test_image_man.jpg'):
+from take_image import take_photo
+
+def get_gender(image_path='camImage.png'):
+    take_photo()
     KEY = '5aac802b7953441f89b56f5f33b1d3a4'  # Replace with a valid subscription key (keeping the quotes in place).
     # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
     #LOAD PIC FROM ROBOT
@@ -16,7 +20,7 @@ def get_gender(image_path='Images/test/test_image_man.jpg'):
          'Ocp-Apim-Subscription-Key': KEY,
     }
 
-    params = urllib.parse.urlencode({
+    params = urllib.urlencode({
         # Request parameters
         'returnFaceId': 'false',
         'returnFaceLandmarks': 'false',
@@ -27,6 +31,12 @@ def get_gender(image_path='Images/test/test_image_man.jpg'):
 
     response = requests.post(face_api_url, data=data, params=params, headers=headers)
     faces = response.json()
-    gender = faces[0]['faceAttributes']['gender']
+    if len(faces) > 0:
+        gender = faces[0]['faceAttributes']['gender']
+    else:
+        return 'BLABLA'
 
     return gender
+
+
+get_gender()
