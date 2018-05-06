@@ -4,8 +4,9 @@ import os.path
 import PIL
 from PIL import Image
 import random
+from take_image import take_photo
 
-def recommend(image_url='Images/test/test_image_man.jpg',wish="business"):
+def recommend(image_url='camImage.png',wish="business"):
     gender = get_gender(image_url)
     intern_gender = 'man' if gender=='male' else 'woman'
 

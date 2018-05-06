@@ -7,14 +7,19 @@ from azure.cognitiveservices.vision.customvision.prediction import prediction_en
 from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
+from take_image import take_photo
 
-def evaluate_person(image_url='Images/test/test_image.jpg', wish='business'):
+def evaluate_person(image_url='camImage.png', wish='business'):
 
     predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+    project_id = '109b6711-e20a-47cb-ad0e-c90e6103d689'
+    key = '1dcf529eee10461c951c4e1b324dcdc8'
+    iteration_id = '980cf7bf-a3b5-40ac-82ad-b2e78b4711d2'
+
 
     # Open the sample image and get back the prediction results.
     with open(image_url, mode="rb") as test_data:
-         results = predictor.predict_image(project.id, test_data.read(), iteration.id)
+         results = predictor.predict_image(project_id, test_data.read(), iteration.id)
 
     # Display the results. and save
     predictions = {};
