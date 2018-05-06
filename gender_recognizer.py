@@ -1,4 +1,3 @@
-import cognitive_face as CF
 import urlparse
 import urllib
 import requests
@@ -34,9 +33,6 @@ def get_gender(image_path='camImage.png'):
     if len(faces) > 0:
         gender = faces[0]['faceAttributes']['gender']
     else:
-        return 'BLABLA'
+        return 'male'
 
     return gender
-
-
-get_gender()
