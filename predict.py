@@ -47,11 +47,11 @@ def evaluate_person(image_url='camImage.png', wish='casual', gender=None):
     keys = predictions.keys()
     max_key = max(keys)
     best_prediction = predictions[max_key]
-    print(best_prediction)
     
     intern_gender = 'man' if gender == 'male' else 'woman'
 
-
+    print(best_prediction)
+    print(wish+'_'+intern_gender)
     if best_prediction == wish+'_'+intern_gender:
         print('MATCH')
         return True,best_prediction

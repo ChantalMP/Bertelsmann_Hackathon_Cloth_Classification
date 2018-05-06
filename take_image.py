@@ -57,7 +57,8 @@ def main(session):
 def take_photo():
 # if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", type=str, default="192.168.178.31",
+    lisa_ip = '192.168.178.31'
+    parser.add_argument("--ip", type=str, default=lisa_ip,
                         help="Robot IP address. On robot or Local Naoqi: use '127.0.0.1'.")
     parser.add_argument("--port", type=int, default=9559,
                         help="Naoqi port number")
